@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { useStore } from "@/store/useStore";
 
 const playlist = [
-  "/music/Edd_Sheeran_-_Perfect_(mp3.pm).mp3",
   "/music/Aldy_Santos_-_A_Thousand_Years_-_Christina_Perri_Piano_Cover_(mp3.pm).mp3",
   "/music/Ceresia_-_Thinking_Out_Loud_Ed_Sheeran_cover_(mp3.pm).mp3",
+  "/music/Edd_Sheeran_-_Perfect_(mp3.pm).mp3",
 ];
 
 export default function MusicPlayer() {
