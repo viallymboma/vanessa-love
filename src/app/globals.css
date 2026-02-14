@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Great Vibes";
+  src: url("/fonts/GreatVibes-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --wine: #5a0a1e;
+  --wine-deep: #2d0510;
+  --rose-glow: rgba(255, 50, 80, 0.15);
+  --gold: #ffd700;
+  --font-romantic: "Great Vibes", cursive;
+  --font-elegant: "Cormorant Garamond", serif;
+  --font-body: "Crimson Pro", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--wine-deep);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  color: rgba(255, 200, 210, 0.85);
+}
+
+/* Animated background gradient */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+      ellipse at 20% 30%,
+      rgba(120, 15, 40, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(100, 20, 50, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(80, 10, 30, 0.2) 0%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, #1a040a 0%, #2d0510 30%, #3d0815 60%, #1a040a 100%);
+  animation: ambientShift 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ambientShift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(8deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(80, 10, 25, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 100, 130, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(255, 50, 80, 0.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 5, 15, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9b1b30, #c2185b);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #c2185b, #ff1744);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 23, 68, 0.4);
+  color: #ffd700;
+}
+
+/* Hide scrollbar on thumbnail strip */
+.thumbnail-strip::-webkit-scrollbar {
+  display: none;
+}
+.thumbnail-strip {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area for mobile */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
